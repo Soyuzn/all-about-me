@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio Asesmen II-2100 — Centered Alignment</title>
+  <style>
+    :root {
+      --bg: #f6f7f8;
+      --panel: #ffffff;
+      --ink: #12202b;
+      --muted: #5f6b75;
+      --brand: #234C6A;
+      --accent: #1B3C53;
+      --beige: #D2C1B6;
+      --mid: #456882;
+      --line: #e6e8ec;
+      --ease: cubic-bezier(.22,.61,.36,1);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; font-family: 'Inter', system-ui, sans-serif; background: var(--bg); color: var(--ink); }
+
+    .wrap { display: grid; grid-template-columns: 320px 1fr; min-height: 100vh; }
+
+    aside { background: linear-gradient(180deg, #eef2f6, #ffffff); border-right: 1px solid var(--line); padding: 20px 18px; position: sticky; top: 0; height: 100vh; overflow-y: auto; }
+    .brand { font-weight: 700; font-size: 20px; margin-bottom: 18px; color: var(--accent); animation: softPulse 3s ease-in-out infinite; letter-spacing: .2px; }
+
+    .search input { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #f9fafb; transition: all .3s var(--ease); }
+    .search input:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 2px rgba(35,76,106,0.18); }
+
+    .toc { list-style: none; margin: 20px 0 0; padding: 0; }
+    .toc a { display: block; padding: 10px 12px; margin-bottom: 4px; border-radius: 8px; color: var(--ink); text-decoration: none; transition: all .25s var(--ease); }
+    .toc a:hover { background: rgba(27,60,83,0.08); transform: translateX(3px); }
+    .toc a.active { background: rgba(35,76,106,0.16); color: var(--accent); font-weight: 600; border-left: 3px solid var(--mid); }
+
+    main { padding: 40px 50px; background: var(--bg); animation: fadeIn .6s var(--ease); display: flex; flex-direction: column; align-items: center; }
+
+    .crumb { color: var(--muted); font-size: 14px; margin-bottom: 10px; align-self: flex-start; }
+    h1 { font-size: 32px; margin-bottom: 20px; color: var(--accent); text-align: center; }
+
+    article { max-width: 900px; animation: fadeUp .6s var(--ease); }
+    .meta { display: flex; gap: 24px; color: var(--muted); font-size: 14px; margin-bottom: 16px; justify-content: center; }
+    .divider { height: 1px; background: var(--line); margin: 20px auto; width: 80%; }
+
+    .hero-wrapper { display: flex; justify-content: center; width: 100%; }
+
+    .hero { display: flex; justify-content: center; align-items: center; background: var(--panel); border-radius: 20px; padding: 32px; box-shadow: 0 12px 35px rgba(0,0,0,0.06); transition: all .4s var(--ease); border: 1px solid var(--line); gap: 48px; width: 100%; max-width: 900px; margin: 0 auto; }
+    .hero:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(0,0,0,0.08); }
+
+    .hero .copy { flex: 1; text-align: left; display: flex; flex-direction: column; justify-content: center; padding-left: 40px; }
+    .hero h2 { margin: 0 0 8px; font-size: 28px; color: var(--brand); }
+    .hero p { margin: 0; color: var(--muted); }
+
+    .hero .img { flex: 1; display: flex; justify-content: center; align-items: center; aspect-ratio: 16/9; border-radius: 14px; background: linear-gradient(135deg, var(--mid), var(--brand)); color: #e7ecf1; font-size: 13px; font-style: italic; border: 1px solid rgba(27,60,83,.25); max-width: 360px; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes softPulse { 0%,100% { opacity: 1; } 50% { opacity: .8; } }
+
+    /* paragraf justify */
+    article p {text-align: justify;}
+
+    @media (max-width: 920px) {
+      .wrap { grid-template-columns: 1fr; }
+      aside { position: static; height: auto; }
+      main { padding: 24px; }
+      .hero { flex-direction: column; gap: 24px; width: 100%; text-align: center; }
+      .hero .copy { padding-left: 0; align-items: center; text-align: center; }
+    }
+
+    /* ========== SHAPE TABLE ========== */
+    .shape-wrap{max-width:950px;margin:28px auto 0;padding:0 4px}
+    .shape-table{
+      width:100%; border-collapse:separate; border-spacing:0;
+      background:var(--panel); color:var(--ink);
+      border:1px solid var(--line); border-radius:14px; overflow:hidden;
+      box-shadow:0 10px 28px rgba(0,0,0,.05);
+    }
+    .shape-table thead th{
+      background:linear-gradient(180deg, var(--accent), var(--brand));
+      color:#fff; text-align:left; padding:14px 16px; font-weight:600; letter-spacing:.2px;
+    }
+    .shape-table tbody td, .shape-table tbody th{
+      padding:14px 16px; vertical-align:top; border-top:1px solid var(--line);
+    }
+    .shape-table tbody th{ width:26%; color:var(--accent)}
+    .shape-table tbody tr:nth-child(even){ background:#fafbfc }
+    .shape-caption{
+      font-weight:700; color:var(--accent); margin:0 0 10px; display:flex; gap:8px; align-items:center;
+    }
+    .shape-caption::before{content:'📘'}
+    .shape-note{ color:var(--muted); font-size:13px; text-align:right; margin:6px 0 0 }
+    @media (max-width: 720px){
+      .shape-table thead{display:none}
+      .shape-table, .shape-table tbody, .shape-table tr, .shape-table td, .shape-table th{display:block;width:100%}
+      .shape-table tbody tr{border-top:1px solid var(--line)}
+      .shape-table tbody th{background:#f4f6f8}
+      .shape-table tbody td{padding-top:8px}
+    }
+
+    mark{
+      background: var(--beige);
+      color: var(--ink);
+      padding: 0 2px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <aside>
+      <div class="brand">Mishael Gilland</div>
+      <div class="search"><input id="search" type="search" placeholder="Cari kata…"></div>
+      <ul id="toc" class="toc"></ul>
+    </aside>
+
+    <main>
+      <div class="crumb">Portfolio Asesmen II-2100 KIPP</div>
+      <h1 id="page-title">Perkenalan Diri</h1>
+      <div id="page-content"></div>
+    </main>
+  </div>
+
+  <script>
+    const PAGES = [
+      { id: 'selamat-berjumpa', title: 'Perkenalan diri', content: selamatBerjumpa() },
+
+      { id: 'kisah-identitas',
+        title: '1. All About Me',
+        content: `
+        <article>
+          <section style="max-width:800px;margin:auto;line-height:1.7;">
+            <h2 style="text-align:center;color:var(--brand);">Hello World!</h2>
+                <p>
+                Halo! Saya <b>Mishael Gilland</b>, seorang mahasiswa semester 3 yang memiliki ketertarikan mendalam pada dunia informatika. 
+                Ketertarikan ini mulai tumbuh sejak masa SD, saat pertama kali saya mengenal berbagai aspek dalam bidang ini. 
+                Bagi saya, belajar dan mengeksplorasi hal-hal seputar informatika dan informasi merupakan aktivitas yang menyenangkan, terutama dalam bidang <b>Product Manager</b>. 
+                Saya percaya bahwa mengembangkan sebuah produk yang bermanfaat bagi banyak orang adalah hal yang sangat memuaskan.
+                </p>
+                <p>
+                Saya aktif berpartisipasi dalam berbagai kegiatan kepanitiaan, khususnya di bidang managerial dan IT. 
+                Saya pun memiliki minat besar dalam keorganisasian dan kepanitiaan. 
+                Ketertarikan terhadap keorganisasian muncul karena saya ingin belajar bagaimana cara mengelola sebuah tim dan bekerja sama untuk mencapai tujuan bersama. 
+                Saya pernah menjadi bagian dari Divisi Capital Catalyst HMIF dan sebelumnya dipercaya sebagai <b>Koordinator Lomba Cepat Tepat MIPA</b>. 
+                Saya juga memiliki pengalaman sebagai <b>Staff IT</b> di beberapa kepanitiaan, yang memungkinkan saya untuk mengasah keterampilan teknis saya.
+                </p>
+                <p>
+                Di luar bidang informatika, saya memiliki hobi di bidang <b>bisnis</b>, terutama yang berkaitan dengan kenegaraan. 
+                Saya sangat tertarik mempelajari berbagai negara di dunia, termasuk budaya, sejarah, dan sistem pemerintahan mereka.
+                Ketertarikan ini bermula dari sebuah komputer yang saya gemar saya gunakan sejak kecil.
+                Dengan komputer tersebut saya sering sekali mendapatkan ilmu baru dan akhirnya tertarik tentang bisnis dan bagaimana bisnis bekerja.
+                Oleh karena itu, saya bercita-cita untuk menjadi seorang <b>Product Manager</b> yang tidak hanya menguasai aspek teknis, tetapi juga memahami dinamika bisnis di balik pengembangan produk.
+                </p>
+          </section>
+        </article>`
+      },
+
+      { id: 'my-songs', title: '2. My Song for You', content: placeholder('My Songs for You') },
+
+      { id: 'my-stories',
+        title: '3. My Stories for You',
+        content: `
+        <article>
+          <section style="max-width:800px;margin:auto;line-height:1.9">
+            <h2 style="text-align:center;color:var(--brand);margin-bottom:10px">
+              Love, Rewritten
+            </h2>
+            <p style="color:var(--muted);text-align:center;margin-top:0;margin-bottom:24px">
+              oleh Mishael Gilland
+            </p>
+
+            <p>Dulu, baginya cinta adalah tentang siapa yang bersedia tinggal.
+                Ia mengira cinta akan selalu sederhana tentang dua orang yang saling menyayangi, saling melengkapi, dan berjalan berdampingan sampai akhir. 
+                Ia percaya jika seseorang mencintainya, maka orang itu tidak akan pergi. 
+                Maka, ketika cinta yang ia genggam perlahan melepaskan, dunia di sekelilingnya terasa runtuh. 
+                Ia bertanya-tanya apa yang salah, apakah dirinya kurang cukup, atau cinta memang tidak sekuat yang ia bayangkan.
+            </p>
+            <p>Dalam masa-masa itu, ia belajar bahwa kehilangan bukan berarti akhir.
+                Ia mulai melihat kembali caranya mencinta betapa selama ini ia lebih sibuk mempertahankan, daripada memahami. 
+                Ia mencintai dengan ketakutan: takut ditinggalkan, takut tidak dianggap, takut tidak dicintai kembali. 
+                Cintanya lahir dari rasa ingin memiliki, bukan dari keberanian memberi ruang. 
+                Dan ia sadar, itulah mengapa cintanya terasa berat, bukan hangat.
+            </p>
+            <p>Perlahan, ia mulai belajar bahwa cinta tidak harus selalu dimiliki untuk bisa berarti.
+                Cinta bisa tumbuh dalam bentuk doa diam-diam, dalam dukungan tanpa pamrih, dalam kebahagiaan melihat seseorang tumbuh meski bukan lagi di sisinya.
+                Ia menulis ulang pengertian cintanya bukan sebagai sesuatu yang mengikat, tapi sebagai sesuatu yang membebaskan.
+                Cinta sejati, ia sadari, bukan tentang menggenggam erat, tapi tentang percaya meski tak lagi bersama.
+            </p>
+            <p>Hari-hari pun berlalu, dan ia mulai mencintai dirinya sendiri dengan cara yang sama seperti dulu ia berharap orang lain mencintainya.
+                Ia belajar memberi maaf, menerima luka, dan merangkul dirinya yang pernah hancur.
+                Ia berhenti mencari pembuktian dari luar, dan mulai membangun ketenangan dari dalam.
+                Perlahan tapi pasti, luka itu berubah menjadi pelajaran, dan pelajaran itu berubah menjadi kekuatan.
+            </p>
+            <p>Kini, cinta baginya bukan lagi tentang seseorang yang datang untuk melengkapi, tapi tentang bagaimana dua jiwa bisa tumbuh berdampingan tanpa saling menahan.
+                Ia tak lagi takut kehilangan, karena ia tahu: cinta sejati tak pernah benar-benar hilang, hanya berubah bentuk.
+                Ia menutup lembar lama dengan senyuman, dan menulis ulang kisah cintanya sendiri—dengan tinta keberanian, keikhlasan, dan kasih yang lebih matang.
+            </p>
+            <p>KDan di sanalah ia berdiri sekarang.
+                Bukan lagi sebagai seseorang yang menunggu untuk dicintai, tapi sebagai seseorang yang mencintai—dengan cara yang lebih tenang, lebih sadar, dan lebih utuh.
+            </p>
+            <p><strong>Ia menyadari, cinta sejati bukan kisah tentang dua orang yang saling memiliki, tapi tentang dua hati yang saling memahami meski tak harus bersama.</strong></p>
+          </section>
+        </article>`
+      },
+
+      { id: 'my-shapes',
+        title: '4 My Shapes',
+        content: `
+        <article>
+          <!-- Narasi SHAPE -->
+          <section style="max-width:850px;margin:auto;line-height:1.8;text-align:justify;">
+            <h2 style="text-align:center;color:var(--brand);margin-bottom:8px">
+              MY SHAPE – Piagam Diri & Identitas Naratif
+            </h2>
+            <p style="text-align:center;color:var(--muted);margin-top:0;">
+              oleh Mishael Gilland
+            </p>
+
+            <h3 style="color:var(--accent);margin-top:32px;">1. S – Signature Strengths (Kekuatan Khas)</h3>
+                <p>
+                Menjadi pribadi yang peka terhadap perasaan telah menjadi bagian dari diriku. 
+                Aku sering menyeimbangkan antara logika dan perasaan dalam melihat setiap peristiwa dalam hidup. 
+                Keduanya memiliki porsi yang sama penting, membuatku terbiasa berpikir lebih terbuka saat menghadapi berbagai situasi. 
+                Aku terbiasa mempertimbangkan perasaan orang lain sekaligus menimbangnya dengan logika dan perasaanku sendiri sebelum bertindak. 
+                Dari situlah muncul dorongan untuk berkontribusi dalam dunia teknologi, terutama untuk mendukung sisi psikologis manusia. 
+                Pengalaman itu tumbuh dari berbagai hal, seperti mengikuti lomba pembuatan aplikasi untuk kemasyarakatan, serta menjadi mentor bagi adik kelas dalam persiapan lomba OSN Informatika dan Berpikir Komputasional. 
+                Selain itu, lewat berbagai pengalaman yang kulalui, aku menyadari bahwa teknologi punya peran besar dalam mempermudah dan memperluas dampak kebaikan ke banyak orang.
+                </p>
+
+                <h3 style="color:var(--accent);margin-top:28px;">3. A – Aptitudes & Acquired Skills (Bakat & Keterampilan)</h3>
+                <p>
+                Sejak kecil, aku memiliki ketertarikan alami pada dunia berhitung dan pola pikir yang terstruktur. 
+                Seiring waktu, ketertarikan itu berkembang ke ranah <b>bisnis</b> dan khususnya <b>product development</b>, di mana aku suka mengeksplorasi ide-ide baru dan mencari cara bagaimana sebuah produk dapat memberikan nilai nyata bagi penggunanya. 
+                Aku menikmati proses mendalami masalah, memetakan solusi, lalu menerjemahkannya menjadi konsep yang konkret. 
+                Dari situ, aku mulai mengasah keterampilan analisis, berpikir strategis, dan memahami alur bagaimana sebuah produk dirancang, dikembangkan, lalu disampaikan ke pasar. 
+                Selain itu, aku juga terbiasa belajar secara otodidak—mengeksplor tools, menonton video pembelajaran, hingga membaca referensi dari berbagai sumber untuk memperluas wawasanku.
+                </p>
+
+                <h3 style="color:var(--accent);margin-top:28px;">P – Personality (Profil Kepribadian)</h3>
+                <p>
+                Aku memiliki daya ingat jangka panjang yang cukup kuat, terutama dalam hal-hal detail, serta kemampuan problem solving yang terasah melalui pengalaman dan kebiasaan berpikir sistematis. 
+                Aku senang memecahkan masalah dengan cara yang menyeluruh—bukan hanya fokus pada solusi cepat, tetapi juga akar permasalahannya. 
+                Aku juga tipe orang yang senang berdiskusi, bertukar ide, dan mendengarkan berbagai sudut pandang sebelum mengambil keputusan. 
+                Aku suka menganalisis dinamika di sekitar, menghubungkan berbagai potongan informasi, dan mengubahnya menjadi sesuatu yang terarah dan bermakna. 
+                Dalam proses kerja, aku lebih suka kolaborasi terbuka, tidak kaku, dan siap beradaptasi dengan situasi baru. 
+                Bagi aku, cara berpikir terbuka dan fleksibel adalah kunci untuk berkembang lebih jauh.
+                </p>
+
+                <h3 style="color:var(--accent);margin-top:28px;">E – Experiences (Pengalaman Hidup)</h3>
+                <p>
+                Sejak kecil, aku terbiasa aktif dalam berbagai kegiatan, mulai dari organisasi sekolah hingga kompetisi bidang informatika. 
+                Aku sering mengikuti lomba-lomba, seperti olimpiade Informatika dan Matematika, dan hal itu membuatku terbiasa berpikir logis dan strategis sejak dini. 
+                Aku juga pernah terlibat dalam berbagai organisasi, mulai dari komunitas hingga kepanitiaan acara, yang melatih kemampuan leadership dan kerja sama timku. 
+                Saat menginjak bangku kuliah, aku mulai lebih fokus mengasah potensi di bidang teknologi dan product development, sekaligus tetap mengembangkan soft skill seperti komunikasi, empati, dan koordinasi lintas bidang. 
+                Semua pengalaman itu membentuk cara berpikirku yang lebih matang dan visioner.
+                </p>
+
+                <h3 style="text-align:center;color:var(--brand);margin-top:36px;">Pernyataan Misi Pribadi</h3>
+                <blockquote style="font-style:italic;text-align:center;color:var(--muted);margin:20px auto 0;max-width:700px;">
+                “Bagiku, teknologi bukan sekadar alat, tapi jembatan untuk menciptakan dampak. 
+                Aku ingin membangun solusi yang tidak hanya efektif secara teknis, tetapi juga memiliki makna dan memberikan kenyamanan bagi banyak orang. 
+                Aku percaya pada kekuatan berpikir terstruktur, kolaborasi terbuka, dan empati dalam menciptakan perubahan. 
+                Misinya sederhana: menjadi seseorang yang terus belajar, terus tumbuh, dan memberi manfaat melalui karya yang nyata.”
+                </blockquote>
+          </section>
+
+          <!-- Tabel Ringkasan SHAPE -->
+          <div class="shape-wrap">
+            <div class="shape-caption">Tabel – Piagam Diri (Self Charter) dan Identitas Naratif</div>
+            <div style="overflow-x:auto;">
+              <table class="shape-table">
+                <thead>
+                  <tr>
+                    <th>Komponen</th>
+                    <th>Deskripsi Reflektif</th>
+                    <th>Contoh Implementasi Nyata</th>
+                  </tr>
+                </thead>
+                <tbody>
+                <tr>
+                <th>S – Signature Strengths<br><small>(Kekuatan Khas)</small></th>
+                <td>
+                    Daya ingat jangka panjang, ambisi tinggi, fleksibel, dan berorientasi pada hasil.  
+                    Aku memiliki kemampuan mengingat detail secara mendalam, didorong rasa ingin tahu yang kuat. 
+                    Aku ambisius dan memiliki dorongan kuat untuk mencapai target yang telah kutetapkan, serta mampu beradaptasi dengan cepat di lingkungan yang dinamis.
+                </td>
+                <td>
+                    Disiplin dalam menyelesaikan tugas sesuai <i>timeline</i> baik dalam lomba maupun proyek.  
+                    Mampu mengingat detail dengan baik, termasuk informasi kompleks.  
+                    Terbiasa bekerja secara terarah dan tidak mudah menyerah saat menghadapi tantangan.
+                </td>
+                </tr>
+
+                <tr>
+                <th>H – Heart<br><small>(Nilai & Gairah)</small></th>
+                <td>
+                    Aku memiliki semangat untuk membantu orang lain tumbuh, terutama melalui teknologi.  
+                    Aku merasa puas saat bisa berbagi ilmu atau menciptakan solusi yang berdampak positif bagi orang banyak.  
+                    Nilai utamaku adalah menghargai perasaan orang lain dan menciptakan lingkungan yang nyaman serta minim konflik.
+                </td>
+                <td>
+                    Berpengalaman menjadi mentor dan aktif dalam kegiatan pengembangan teknologi berbasis komunitas.  
+                    Suka menciptakan hal-hal yang memberi pengalaman menyenangkan bagi orang lain, baik lewat proyek maupun interaksi sosial.
+                </td>
+                </tr>
+
+                <tr>
+                <th>A – Aptitudes & Acquired Skills<br><small>(Bakat & Keterampilan)</small></th>
+                <td>
+                    Cepat memahami hal baru dan mampu memecahkan masalah hingga ke akar secara sistematis.  
+                    Memiliki ketertarikan kuat pada bidang bisnis dan <b>product development</b>, serta terbiasa berpikir strategis untuk menciptakan solusi yang bernilai.  
+                    Detail-oriented dan selalu berusaha memberikan hasil terbaik dalam setiap proses kreatif maupun teknis.
+                </td>
+                <td>
+                    Terlibat dalam pengembangan konsep dan desain produk digital.  
+                    Terbiasa melakukan eksplorasi mendalam sebelum membangun solusi.  
+                    Mampu menggabungkan logika, strategi, dan sisi kreatif dalam merancang produk.
+                </td>
+                </tr>
+
+                <tr>
+                <th>P – Personality<br><small>(Profil Kepribadian)</small></th>
+                <td>
+                    Memiliki daya ingat kuat dan kemampuan <i>problem solving</i> yang baik.  
+                    Senang menganalisis hal secara detail, berpikir terbuka, dan imajinatif dalam mencari solusi.  
+                    Fleksibel dan adaptif dalam bekerja sama dengan orang lain, serta tidak takut bereksperimen dengan ide baru.
+                </td>
+                <td>
+                    Terbiasa membuat rencana penyelesaian masalah dengan mendekomposisi persoalan menjadi bagian kecil yang lebih mudah ditangani.  
+                    Suka berdiskusi dan mendalami suatu topik secara menyeluruh untuk menemukan solusi terbaik.
+                </td>
+                </tr>
+
+                <tr>
+                <th>E – Experiences<br><small>(Pengalaman Hidup)</small></th>
+                <td>
+                    Sejak kecil aktif dalam organisasi dan kompetisi informatika.  
+                    Sering menghadapi tantangan di tengah jalan, namun selalu mencari cara lain untuk terus maju.  
+                    Pengalaman di berbagai bidang memperkuat kemampuan berpikir strategis dan kepemimpinan.
+                </td>
+                <td>
+                    Berpengalaman di kepanitiaan dan organisasi kampus dalam bidang teknologi dan pengembangan produk.  
+                    Pernah menjadi bagian dari tim inti berbagai event serta aktif dalam komunitas teknologi dan UI/UX.
+                </td>
+                </tr>
+
+                <tr>
+                <th>Pernyataan Misi Pribadi</th>
+                <td colspan="2">
+                    “Aku ingin menciptakan teknologi yang berdampak nyata bagi manusia, bukan sekadar alat, tapi solusi yang membuat hidup lebih nyaman dan bermakna. 
+                    Aku percaya pada kekuatan empati, struktur berpikir, dan keberanian untuk terus bertumbuh. 
+                    Misinya jelas: menjadi pribadi yang berguna, membawa perubahan positif, dan terus belajar untuk membangun masa depan yang lebih baik.”
+                </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="shape-note">Ringkasan ini melengkapi narasi di atas dan bisa dipakai untuk CV/portfolio.</div>
+          </div>
+        </article>`
+      },
+
+      { id: 'personal-reviews', title: '5 My Personal Reviews', content: placeholder('My Personal Reviews') },
+      { id: 'my-concepts', title: '6 My Concepts', content: placeholder('My Concepts') },
+      { id: 'my-opinions', title: '7 My Opinions', content: placeholder('My Opinions') },
+      { id: 'my-innovations', title: '8 My Innovations', content: placeholder('My Innovations') },
+      { id: 'my-knowledge', title: '9 My Knowledge', content: placeholder('My Knowledge') },
+      { id: 'pro-reviews', title: '10 My Professional Reviews', content: placeholder('My Professional Reviews') },
+      { id: 'summary', title: '11 Summary', content: placeholder('Summary') },
+      { id: 'references', title: 'References', content: placeholder('References') },
+    ];
+
+    function placeholder(title) {
+      return `<article><p style='color:var(--muted); text-align:center;'>Halaman <b>${title}</b> masih kosong. Silakan isi konten di sini nanti.</p></article>`;
+    }
+
+    function selamatBerjumpa() {
+      return `<article>
+        <div class='meta'>
+          <div><b>Author</b><br>Mishael Gilland</div>
+          <div><b>Published</b><br>${new Date().toLocaleDateString('id-ID')}</div>
+        </div>
+        <div class='divider'></div>
+        <div class='hero-wrapper'>
+          <div class='hero'>
+            <div class='copy'>
+              <h2>2 3 tutup botol, semangat semua.</h2>
+              <p>with extensive experience in design, event coordination, and
+            leadership. I have contributed to multiple events as a designer and held various leadership roles,
+            demonstrating strong teamwork and project management skills.</p>
+            </div>
+            <div class='img' style="background: url('assets/foto profil.jpg') center/cover no-repeat; border: none;"></div>
+          </div>
+        </div>
+        <section style='margin-top:40px;'>
+          <h3 style='text-align:center;'>About me</h3>
+          <p style='text-align:center;'>Seorang mahasiswa semester 3 di Sekolah Teknik Elektro dan Informatika-Komputasi Institut Teknologi Bandung.</p>
+          <p style='text-align:center;'>Memerjuangkan dirinya untuk menempatkan diri diantara padatnya hidup.</p>
+        </section>
+      </article>`;
+    }
+
+    const toc = document.getElementById('toc');
+    const contentEl = document.getElementById('page-content');
+    const titleEl = document.getElementById('page-title');
+
+    /* ======= INDEX KONTEN UNTUK SEARCH ======= */
+    const CONTENT_INDEX = Object.fromEntries(
+      PAGES.map(p => {
+        const div = document.createElement('div');
+        div.innerHTML = p.content;
+        const text = (div.textContent || "").toLowerCase();
+        return [p.id, text];
+      })
+    );
+
+    function countHits(text, q){
+      if (!q) return 0;
+      const safe = q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const m = (text.match(new RegExp(safe, 'gi')) || []);
+      return m.length;
+    }
+
+    function renderToc(list){
+      const q = (document.getElementById('search').value || "").toLowerCase().trim();
+      toc.innerHTML = list.map(p => {
+        const hits = q ? countHits((CONTENT_INDEX[p.id] || "") + " " + p.title.toLowerCase(), q) : 0;
+        const badge = q && hits ? `<small style="float:right;color:var(--muted)">${hits}</small>` : "";
+        return `<li><a href="#${p.id}" data-id="${p.id}">${p.title}${badge}</a></li>`;
+      }).join('');
+      bindToc();
+      setActive(location.hash.slice(1) || (list[0]?.id || 'selamat-berjumpa'));
+    }
+
+    function bindToc() {
+      toc.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setActive(a.dataset.id)));
+    }
+
+    function setActive(id) {
+      toc.querySelectorAll('a').forEach(a => a.classList.toggle('active', a.dataset.id === id));
+      navigate(id);
+    }
+
+    function navigate(id) {
+      const p = PAGES.find(x => x.id === id) || PAGES[0];
+      titleEl.textContent = p.title;
+      contentEl.innerHTML = p.content;              // render ulang konten (reset mark)
+      contentEl.style.animation = 'fadeUp .5s var(--ease)';
+
+      // highlight sesuai query saat ini
+      const q = (document.getElementById('search').value || '').trim().toLowerCase();
+      if(q) highlightInElement(contentEl, q);
+    }
+
+
+
+    // escape regex special chars
+    function escapeRegExp(str){ return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); }
+
+    // highlight semua kemunculan q di dalam elemen (DOM-safe, per text node)
+    function highlightInElement(root, q){
+      if(!q) return;
+      const re = new RegExp(escapeRegExp(q), 'gi');
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+      const hits = [];
+          let node;
+      while(node = walker.nextNode()){
+        // skip text di dalam <script>/<style> atau anak <mark>
+        const p = node.parentNode;
+        if(!p || p.closest('mark') || /^(SCRIPT|STYLE)$/.test(p.tagName)) continue;
+        if(re.test(node.nodeValue)) hits.push(node);
+      }
+      hits.forEach(n=>{
+        const frag = document.createDocumentFragment();
+        const text = n.nodeValue;
+        let last = 0;
+        text.replace(re, (m, offset)=>{
+          if(offset > last) frag.appendChild(document.createTextNode(text.slice(last, offset)));
+          const mark = document.createElement('mark');
+          mark.textContent = m;
+          frag.appendChild(mark);
+          last = offset + m.length;
+          return m;
+        });
+        if(last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+        n.parentNode.replaceChild(frag, n);
+      });
+    }
+
+    renderToc(PAGES);
+    navigate(location.hash.slice(1) || 'selamat-berjumpa');
+
+    /* =======  SEARCH BY CONTENT  ======= */
+    document.getElementById('search').addEventListener('input', e => {
+      const q = e.target.value.toLowerCase().trim();
+      if (!q) { renderToc(PAGES); return; }
+
+      const filtered = PAGES.filter(p => {
+        const inTitle = p.title.toLowerCase().includes(q);
+        const inBody  = (CONTENT_INDEX[p.id] || "").includes(q);
+        return inTitle || inBody;
+      });
+
+      renderToc(filtered);
+    });
+  </script>
+</body>
+</html>
