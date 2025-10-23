@@ -156,50 +156,57 @@
         </article>`
       },
 
-{ id: 'my-songs',
-  title: '2. My Song for You',
-  content: `
-    <article>
-      <h2 style='color: var(--text-color);'>Hampir Selesai - Mishael</h2>
-
-      <div style="text-align:center; margin: 20px 0;">
-        <video controls width="640" style="max-width:100%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
-          <source src="assets/video lagu.MP4" type="video/mp4">
-          Browser kamu tidak mendukung pemutaran video.
-        </video>
-      </div>
-
-      <h3 style="color: var(--brand); margin-top: 20px;">Lirik: Hampir Selesai - Mishael</h3>
-
-      <p>
-        <b>[Verse 1]</b><br>
-        Kau tahu, aku sempat lelah,
-        Berjalan sendiri terlalu lama.
-        Kupikir cinta cuma cerita,
-        Yang tak perlu kupercaya.
-      </p>
-
-      <p>
-        <b>[Pre-Chorus]</b><br>
-        Tapi matamu tenang,
-        Seperti sore yang hilang…
-      </p>
-
-      <p>
-        <b>[Chorus]</b><br>
-        Kupikir hatiku sudah lupa,
-        Ternyata masih bisa bergetar juga.
-        Tak perlu janji, tak perlu kata,
-        Cukup diam — tapi nyata.
-      </p>
-
-      <p>
-        <b>[Outro]</b><br>
-        Mungkin belum selesai,
-        Tapi kali ini… aku tak menolak.
-      </p>
-    </article>`
-},
+      { id: 'my-songs',
+        title: '2. My Song for You',
+        content: `
+          <article>
+            <h2 style='color: var(--text-color); text-align:center;'>Hampir Selesai - Mishael</h2>
+      
+            <!-- 🎬 Embed YouTube Video -->
+            <div style="display:flex; justify-content:center; margin: 25px 0;">
+              <iframe 
+                width="640" height="360"
+                style="max-width:100%; border-radius:12px; box-shadow:0 4px 18px rgba(0,0,0,0.15);"
+                src="https://www.youtube.com/embed/4oukzNSMYME?si=FokI4uigJ6t9YbqN" 
+                title="Hampir Selesai - Mishael (Official Video)" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerpolicy="strict-origin-when-cross-origin" 
+                allowfullscreen>
+              </iframe>
+            </div>
+      
+            <h3 style="color: var(--brand); margin-top: 20px;">Lirik: Hampir Selesai - Mishael</h3>
+      
+            <p>
+              <b>[Verse 1]</b><br>
+              Kau tahu, aku sempat lelah,<br>
+              Berjalan sendiri terlalu lama.<br>
+              Kupikir cinta cuma cerita,<br>
+              Yang tak perlu kupercaya.
+            </p>
+      
+            <p>
+              <b>[Pre-Chorus]</b><br>
+              Tapi matamu tenang,<br>
+              Seperti sore yang hilang…
+            </p>
+      
+            <p>
+              <b>[Chorus]</b><br>
+              Kupikir hatiku sudah lupa,<br>
+              Ternyata masih bisa bergetar juga.<br>
+              Tak perlu janji, tak perlu kata,<br>
+              Cukup diam — tapi nyata.
+            </p>
+      
+            <p>
+              <b>[Outro]</b><br>
+              Mungkin belum selesai,<br>
+              Tapi kali ini… aku tak menolak.
+            </p>
+          </article>`
+      },
 
       { id: 'my-stories',
         title: '3. My Stories for You',
