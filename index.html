@@ -156,7 +156,47 @@
         </article>`
       },
 
-      { id: 'my-songs', title: '2. My Song for You', content: placeholder('My Songs for You') },
+      { id: 'my-songs',
+        title: '2. My Song for You',
+        content: `
+          <article>
+            <h2 style='color: var(--text-color);'>Hampir Selesai - Mishael</h2>
+            <audio controls style='width:100%; margin: 20px 0;'>
+                <source src='assets/leave-irghi.mp3' type='audio/mp3'>
+            </audio>
+
+                <h3 style="color: var(--brand); margin-top: 20px;">Lirik: Leave - Irghi</h3>
+
+                <p>
+                    <b>[Verse 1]</b><br>
+                    Kau tahu, aku sempat lelah,
+                    Berjalan sendiri terlalu lama.
+                    Kupikir cinta cuma cerita,
+                    Yang tak perlu kupercaya.
+                </p>
+
+                <p>
+                    <b>[Pre-Chorus]</b><br>
+                    Tapi matamu tenang,
+                    Seperti sore yang hilang…
+                </p>
+
+                <p>
+                    <b>[Chorus]</b><br>
+                    Kupikir hatiku sudah lupa,
+                    Ternyata masih bisa bergetar juga.
+                    Tak perlu janji, tak perlu kata,
+                    Cukup diam — tapi nyata.
+                </p>
+
+                <p>
+                    <b>[Outro]</b><br>
+                    Mungkin belum selesai,
+                    Tapi kali ini… aku tak menolak.
+                </p>
+          </article>`
+      },
+
 
       { id: 'my-stories',
         title: '3. My Stories for You',
@@ -360,7 +400,70 @@
           </div>
         </article>`
       },
+ { id: 'personal-reviews', title: '5 My Personal Reviews', 
+      content:
+        <div class="tinjauan-spesifik">
+    <h2>Tinjauan Spesifik & Skor (Skala 1-5)</h2>
+    <div class="tinjauan-spesifik-container">
 
+        <div class="uts-box" id="uts-1-box">
+            <div class="uts-header">UTS-1 -- All About Me</div>
+            <div class="uts-skor-kriteria">
+                <span class="uts-bagian-judul">Skor per kriteria:</span> Orisinalitas 5, Keterlibatan 5, Humor 5, Wawasan/Insight 5 — <span class="uts-skor-total">Total 20/20 (100%)</span>
+            </div>
+            <div class="uts-bagian-judul">Alasan singkat:</div>
+            <div class="uts-bagian-isi">Refleksi, identitas, dan narasi personal emosional sangat kuat, memenuhi semua kriteria rubrik dengan skor maksimal.</div>
+            <div class="uts-bagian-judul">Saran perbaikan:</div>
+            <div class="uts-bagian-isi">Tambahkan sedikit audio atau media pribadi untuk memperkuat pesan dan meningkatkan kesan.</div>
+        </div>
+
+        <div class="uts-box" id="uts-2-box">
+            <div class="uts-header">UTS-2 -- My Songs for You</div>
+            <div class="uts-skor-kriteria">
+                <span class="uts-bagian-judul">Skor per kriteria:</span> Orisinalitas 5, Ikatan & Musik 5, Keterlibatan 5, Humor 5, Inspirasi 5 — <span class="uts-skor-total">Total 20/20 (100%)</span>
+            </div>
+            <div class="uts-bagian-judul">Alasan singkat:</div>
+            <div class="uts-bagian-isi">Lagu "Serpents" (Original) sukses menggabungkan personal review dengan penggunaan Al dengan sangat harmonis, emosi dan visual saling memperkuat.</div>
+            <div class="uts-bagian-judul">Saran perbaikan:</div>
+            <div class="uts-bagian-isi">Tambahkan 1-2 kalimat tentang daya penerimaan pesan lagu untuk memperjelas relasi interpersonalnya.</div>
+        </div>
+
+        <div class="uts-box" id="uts-3-box">
+            <div class="uts-header">UTS-3 -- My Stories for You</div>
+            <div class="uts-skor-kriteria">
+                <span class="uts-bagian-judul">Skor per kriteria:</span> Orisinalitas 5, Keterlibatan 5, Keberlanjutan 5, Inspirasi 5 — <span class="uts-skor-total">Total 20/20 (100%)</span>
+            </div>
+            <div class="uts-bagian-judul">Alasan singkat:</div>
+            <div class="uts-bagian-isi">Cerita kuat, intensif, dan reflektif dengan nilai-nilai yang mendukung memperkuat kesungguhan, empati, dan komunikasi efektif.</div>
+            <div class="uts-bagian-judul">Saran perbaikan:</div>
+            <div class="uts-bagian-isi">Tambahkan epilog reflektif singkat yang mengaitkan setiap cerita satu kesatuan rinci.</div>
+        </div>
+
+        <div class="uts-box" id="uts-4-box">
+            <div class="uts-header">UTS-4 -- My SHAPE</div>
+            <div class="uts-skor-kriteria">
+                <span class="uts-bagian-judul">Skor per kriteria:</span> Orisinalitas 5, Keterlibatan 5, Keberlanjutan 5, Inspirasi 5 — <span class="uts-skor-total">Total 20/20 (100%)</span>
+            </div>
+            <div class="uts-bagian-judul">Alasan singkat:</div>
+            <div class="uts-bagian-isi">Lengkap dan menggambarkan pemahaman diri melalui asesmen refleksi SHAPE, daya tarik profesional dan empat.</div>
+            <div class="uts-bagian-judul">Saran perbaikan:</div>
+            <div class="uts-bagian-isi">Tambahkan visualisasi sederhana (diagram atau mindmap SHAPE) untuk memperkuat aspek presentasi.</div>
+        </div>
+
+        <div class="uts-box" id="uts-5-box">
+            <div class="uts-header">UTS-5 -- My Personal Reviews</div>
+            <div class="uts-skor-kriteria">
+                <span class="uts-bagian-judul">Skor per kriteria:</span> Pemahaman Konsep 5, Analisis Kritis 5, Argumentasi (Logos) 5, Etos & Empati 5, Rekomendasi 5 — <span class="uts-skor-total">Total 25/25 (100%)</span>
+            </div>
+            <div class="uts-bagian-judul">Alasan singkat:</div>
+            <div class="uts-bagian-isi">Menyajikan pemahaman utuh terhadap rubrik dan proses asesmen diri. Konsisten memenuhi standar dengan nilai terbaik yang sempurna.</div>
+            <div class="uts-bagian-judul">Saran perbaikan:</div>
+            <div class="uts-bagian-isi">Tambahkan contoh personal review 1 karya (lebih dari 100 kata) untuk mendemonstrasikan penerapan analisis interpersonal secara penuh.</div>
+        </div>
+
+    </div>
+</div>
+      },
       { id: 'personal-reviews', title: '5 My Personal Reviews', content: placeholder('My Personal Reviews') },
       { id: 'my-concepts', title: '6 My Concepts', content: placeholder('My Concepts') },
       { id: 'my-opinions', title: '7 My Opinions', content: placeholder('My Opinions') },
