@@ -452,7 +452,7 @@
   </article>
   `
 },
-
+{
   id: 'my-concepts', 
   title: '6 My Concepts', 
   content: `
@@ -860,10 +860,6 @@
       titleEl.textContent = p.title;
       contentEl.innerHTML = p.content;              // render ulang konten (reset mark)
       contentEl.style.animation = 'fadeUp .5s var(--ease)';
-
-      // highlight sesuai query saat ini
-      const q = (document.getElementById('search').value || '').trim().toLowerCase();
-      if(q) highlightInElement(contentEl, q);
     }
 
 
